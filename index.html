@@ -145,17 +145,21 @@
         <div class="sub card">
           <h3 id="marktstruktur">Marktstrukturen</h3>
           <p>Verschiebung von Wertschöpfung und Rollen zwischen OEMs, Tier‑1/‑2 und Technologie‑/Cloud‑Anbietern. Kooperation nimmt zu, lineare Lieferketten weichen kooperativen Plattform‑Ökosystemen.</p>
-          <h4>Kooperationen zwischen Akteuren (Auszug – Tabelle)</h4>
+          <h4>Kooperationen zwischen Akteuren (Tabelle)</h4>
           <table>
             <thead>
               <tr>
-                <th>Akteur A</th><th>Akteur B</th><th>Typ</th><th>Ziel/Zweck</th><th>Zeitraum/Jahr</th><th>Quelle</th>
+                <th>Kooperation</th><th>Beteiligte Akteure</th><th>Art der Kooperation</th><th>Ziel / Inhalt</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><!-- z.B. Volkswagen --></td><td><!-- z.B. Rivian --></td><td>JV/Kooperation</td><td><!-- Updatefähige E/E‑Architektur / SDV‑Plattform --></td><td><!-- 2025/2027 --></td><td><!-- [70] --></td></tr>
-              <tr><td><!-- Toyota --></td><td><!-- Mazda/Subaru/Suzuki --></td><td>Allianz</td><td><!-- Skalierbare Softwareentwicklung --></td><td><!-- 2024/2025 --></td><td><!-- [47] --></td></tr>
-              <tr><td><!-- Renault --></td><td><!-- Valeo --></td><td>Partnerschaft</td><td><!-- SDV‑Entwicklung --></td><td><!-- 2023 --></td><td><!-- [67] --></td></tr>
+              <tr><td>Volkswagen × Rivian</td><td>Volkswagen Group &amp; Rivian Automotive</td><td>Strategische Partnerschaft</td><td>Aufbau einer gemeinsamen Software-Defined-Vehicle-Plattform und Integration des Rivian-Software-Stacks in künftige VW-Fahrzeuge.</td></tr>
+<tr><td>Mercedes-Benz × Nvidia</td><td>Mercedes-Benz Group &amp; Nvidia Corporation</td><td>Technologie-Partnerschaft</td><td>Entwicklung zentraler Hochleistungsrechnerarchitekturen (HPC) für automatisiertes Fahren und softwaredefinierte Fahrzeugfunktionen auf Basis von KI.</td></tr>
+<tr><td>ETAS (Bosch) × AWS</td><td>Robert Bosch GmbH &amp; Amazon Web Services (AWS)</td><td>Cloud-Kooperation / Infrastruktur</td><td>Aufbau cloudbasierter Daten- und OTA-Infrastruktur zur Unterstützung von KI-gestützten Entwicklungs- und Update-Prozessen.</td></tr>
+<tr><td>Renault Group × Valeo</td><td>Renault Group &amp; Valeo SA</td><td>Strategische Partnerschaft</td><td>Entwicklung softwaredefinierter Fahrzeugarchitekturen und gemeinsamer Middleware-Plattformen.</td></tr>
+<tr><td>Qualcomm × BMWx AWS</td><td>Qualcomm Technologies &amp; BMW Group &amp; Amazon Web Services (AWS)</td><td>Technologie-Kooperation</td><td>Zusammenarbeit im Bereich autonomes Fahren; Qualcomm liefert Rechenleistung; AWS liefert Cloud-, KI-, ML- und IoT-Dienste von AWS</td></tr>
+<tr><td>Continental x AWS (CAEdge)</td><td>Continental &amp; AWS</td><td>Infrastruktur-Kooperation</td><td>Entwicklung virtueller Entwicklungsumgebungen</td></tr>
+<tr><td>General Motors × Nvidia</td><td>General Motors &amp; Nvidia</td><td>Technologie-Partnerschaft</td><td>Bereitstellung von KI- und Rechenleistung für autonomes Fahren, Robotik und Produktion.</td></tr>
             </tbody>
           </table>
           <div class="viz" id="coopViz">
@@ -165,17 +169,20 @@
         <div class="sub card">
           <h3 id="oekosysteme">Ökosysteme</h3>
           <p>Konsortien, Standardisierungs‑ und Open‑Source‑Initiativen (z. B. AUTOSAR, SOAFEE, Eclipse SDV) bündeln Know‑how, fördern Interoperabilität und beschleunigen Innovationen.</p>
-          <h4>Ökosysteme & Kooperationen (Tabelle)</h4>
+          <h4>Ökosysteme &amp; Kooperationen (Tabelle)</h4>
           <table>
             <thead>
               <tr>
-                <th>Initiative/Konsortium</th><th>Beteiligte Akteure</th><th>Schwerpunkt</th><th>Beitrag/Mehrwert</th><th>Quelle</th>
+                <th>Initiative</th><th>Beteiligte Akteure / Träger</th><th>Schwerpunkt</th><th>Beitrag / Mehrwert</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>AUTOSAR (Classic/Adaptive)</td><td><!-- OEMs, Tier‑1, Tool‑Hersteller --></td><td>Standardisierte Plattformen</td><td>Interoperabilität, Wiederverwendbarkeit</td><td><!-- z. B. eigene Quelle --></td></tr>
-              <tr><td>SOAFEE</td><td><!-- Arm, AWS, OEMs --></td><td>Cloud‑native Automotive</td><td>Virtualisierung, CI/CD im Fahrzeug</td><td><!-- Quelle --></td></tr>
-              <tr><td>Eclipse SDV</td><td><!-- BMW, Bosch, u. a. --></td><td>Open‑Source‑Bausteine</td><td>Beschleunigte Entwicklung</td><td><!-- Quelle --></td></tr>
+              <tr><td>AUTOSAR</td><td>OEMs (BMW, VW, Mercedes-Benz), Tier-1 (Bosch, Continental, Valeo, Vector)</td><td>Standardisierte Softwarearchitektur</td><td>Interoperabilität, Wiederverwendbarkeit und gemeinsame Middleware-Standards.</td></tr>
+<tr><td>SOAFEE (Scalable Open Architecture for Embedded Edge)</td><td>Arm, AWS u. a. Partner</td><td>Cloud-native Architektur für Fahrzeugsoftware</td><td>Ermöglicht CI/CD-Prozesse zwischen Cloud und Edge; unterstützt Echtzeit-, Sicherheits- und Virtualisierungsanforderungen.</td></tr>
+<tr><td>Eclipse SDV Working Group</td><td>Eclipse Foundation, BMW, Mercedes-Benz, Bosch, Continental u. a.</td><td>Open-Source-Standardisierung</td><td>Gemeinsame Entwicklung von SDV-Bausteinen, Förderung von Interoperabilität und Wiederverwendung.</td></tr>
+<tr><td>FEDERATE (EU-Projekt)</td><td>Europäische OEMs, Zulieferer, Behörden, Forschung</td><td>Europäisches SDV-Ökosystem</td><td>Koordination von Open-Source-Entwicklung und Forschung zur Stärkung der europäischen SDV-Kompetenz.</td></tr>
+<tr><td>HAL4SDV (EU-Projekt)</td><td>Europäische Forschungs- und Industriepartner</td><td>Hardware-Abstraktionsschicht</td><td>Sicherstellung von Modularität, Skalierbarkeit, Portabilität und Cybersicherheit über Plattformen hinweg.</td></tr>
+<tr><td>5G Automotive Association (5GAA)</td><td>Toyota, Ericsson, NTT, Cisco, Dell EMC u. a.</td><td>Integration von 5G in automobile Netze</td><td>Entwicklung von Edge-Computing-Lösungen und Standardisierung von MEC-Schnittstellen.</td></tr>
             </tbody>
           </table>
           <div class="viz" id="ecoViz">
