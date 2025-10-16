@@ -60,6 +60,24 @@
     th,td{border:1px solid var(--line); padding:8px; vertical-align:top}
     th{background:#0f1524; text-align:left}
     .viz{border:1px dashed var(--line); border-radius:12px; padding:14px; margin-top:10px}
+      html{scroll-behavior:smooth}
+    .cloud{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-top:14px}
+    .chip{display:flex; align-items:center; justify-content:center; padding:10px 12px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.12)); border-radius:999px; cursor:pointer; text-decoration:none; color:var(--text); font-weight:600}
+    .chip:hover{outline:1px solid var(--accent); transform:translateY(-1px)}
+    .cloud-wrap{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px}
+    .cloud-head{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    .cloud-head input{flex:1 1 280px; max-width:450px; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0d1320; color:var(--text)}
+    .muted{color:var(--muted)}
+    /* Kapitel-Karten */
+    .sub.card{background:transparent; border:1px dashed var(--line)}
+    /* Tabellen – schöner & responsiv */
+    .tbl-wrap{overflow:auto; border:1px solid var(--line); border-radius:12px; margin-top:12px}
+    table{width:100%; border-collapse:separate; border-spacing:0}
+    thead th{position:sticky; top:0; background:#0f1524; color:var(--text); text-align:left}
+    th,td{padding:12px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover{background:rgba(255,255,255,.03)}
+    caption{caption-side:top; text-align:left; color:var(--muted); padding:6px 2px 4px}
   </style>
 </head>
 <body>
@@ -137,56 +155,58 @@
 
     <section id="kapitel" class="card">
       <h2>Hauptkapitel – Überblick</h2>
-      <div class="grid">
+      <div class="grid" style="grid-template-columns:1fr">
         <div class="sub card">
           <h3 id="systemkomponenten">Systemkomponenten</h3>
-          <p>Kernbausteine eines Software Defined Vehicle: E/E‑Architekturen (zonal/zentral), Betriebssysteme & Middleware, Virtualisierung/Containerisierung, Over‑the‑Air‑Updates, Safety & Security sowie Cloud‑/Daten‑Integration. Fokus: Entkopplung von Hardware und Software, Skalierbarkeit und kontinuierliche Softwarebereitstellung.</p>
+          <p><strong>Kurzüberblick (erweitert):</strong> Die technischen Kernbausteine des Software Defined Vehicle umfassen (1) eine zunehmend <em>zonal/zentral</em> organisierte E/E‑Architektur mit Hochleistungsrechnern (HPC) und Zonenkontrollern, (2) <em>Betriebssysteme und Middleware</em> zur serviceorientierten Entkopplung von Anwendungen und Hardware, (3) <em>Virtualisierung und Containerisierung</em> zur sicheren Mandatstrennung und portablen Bereitstellung von Funktionssoftware, (4) <em>Over‑the‑Air‑Mechanismen</em> für inkrementelle Updates über den Fahrzeuglebenszyklus, sowie (5) <em>Safety &amp; Security</em> als Querschnittsdisziplin mit sicherem Booten, Härtung, Isolierung und End‑to‑End‑Absicherung. Ergänzend rücken <em>Cloud‑/Daten‑Integration</em> und <em>KI‑gestützte Funktionen</em> in den Fokus, um Entwicklungs‑ und Betriebsprozesse (CI/CD) sowie datengetriebene Services zu ermöglichen.</p>
         </div>
+
         <div class="sub card">
           <h3 id="marktstruktur">Marktstrukturen</h3>
           <p>Verschiebung von Wertschöpfung und Rollen zwischen OEMs, Tier‑1/‑2 und Technologie‑/Cloud‑Anbietern. Kooperation nimmt zu, lineare Lieferketten weichen kooperativen Plattform‑Ökosystemen.</p>
           <h4>Kooperationen zwischen Akteuren (Tabelle)</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Kooperation</th><th>Beteiligte Akteure</th><th>Art der Kooperation</th><th>Ziel / Inhalt</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Volkswagen × Rivian</td><td>Volkswagen Group &amp; Rivian Automotive</td><td>Strategische Partnerschaft</td><td>Aufbau einer gemeinsamen Software-Defined-Vehicle-Plattform und Integration des Rivian-Software-Stacks in künftige VW-Fahrzeuge.</td></tr>
-<tr><td>Mercedes-Benz × Nvidia</td><td>Mercedes-Benz Group &amp; Nvidia Corporation</td><td>Technologie-Partnerschaft</td><td>Entwicklung zentraler Hochleistungsrechnerarchitekturen (HPC) für automatisiertes Fahren und softwaredefinierte Fahrzeugfunktionen auf Basis von KI.</td></tr>
-<tr><td>ETAS (Bosch) × AWS</td><td>Robert Bosch GmbH &amp; Amazon Web Services (AWS)</td><td>Cloud-Kooperation / Infrastruktur</td><td>Aufbau cloudbasierter Daten- und OTA-Infrastruktur zur Unterstützung von KI-gestützten Entwicklungs- und Update-Prozessen.</td></tr>
-<tr><td>Renault Group × Valeo</td><td>Renault Group &amp; Valeo SA</td><td>Strategische Partnerschaft</td><td>Entwicklung softwaredefinierter Fahrzeugarchitekturen und gemeinsamer Middleware-Plattformen.</td></tr>
-<tr><td>Qualcomm × BMWx AWS</td><td>Qualcomm Technologies &amp; BMW Group &amp; Amazon Web Services (AWS)</td><td>Technologie-Kooperation</td><td>Zusammenarbeit im Bereich autonomes Fahren; Qualcomm liefert Rechenleistung; AWS liefert Cloud-, KI-, ML- und IoT-Dienste von AWS</td></tr>
-<tr><td>Continental x AWS (CAEdge)</td><td>Continental &amp; AWS</td><td>Infrastruktur-Kooperation</td><td>Entwicklung virtueller Entwicklungsumgebungen</td></tr>
-<tr><td>General Motors × Nvidia</td><td>General Motors &amp; Nvidia</td><td>Technologie-Partnerschaft</td><td>Bereitstellung von KI- und Rechenleistung für autonomes Fahren, Robotik und Produktion.</td></tr>
-            </tbody>
-          </table>
-          <div class="viz" id="coopViz">
-            <strong>Visuelle Darstellung (Vorschlag):</strong> Netzwerk‑Diagramm (Akteure als Knoten, Kooperationstyp als Farbe, Kanten als Verbindungen). Diese Box ist ein Platzhalter; wir können sie im nächsten Schritt mit einem kleinen SVG‑Netzwerk befüllen (ohne externe Bibliotheken) oder optional D3.js einbinden.
+          <div class="tbl-wrap">
+            <table>
+              <caption>Gesamtüberblick ausgewählter Kooperationen</caption>
+              <thead>
+                <tr>
+                  <th>Kooperation</th><th>Beteiligte Akteure</th><th>Art der Kooperation</th><th>Ziel / Inhalt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Volkswagen × Rivian</td><td>Volkswagen Group &amp; Rivian Automotive</td><td>Strategische Partnerschaft</td><td>Aufbau einer gemeinsamen Software-Defined-Vehicle-Plattform und Integration des Rivian-Software-Stacks in künftige VW-Fahrzeuge.</td></tr>
+                <tr><td>Mercedes-Benz × Nvidia</td><td>Mercedes-Benz Group &amp; Nvidia Corporation</td><td>Technologie-Partnerschaft</td><td>Entwicklung zentraler Hochleistungsrechnerarchitekturen (HPC) für automatisiertes Fahren und softwaredefinierte Fahrzeugfunktionen auf Basis von KI.</td></tr>
+                <tr><td>ETAS (Bosch) × AWS</td><td>Robert Bosch GmbH &amp; Amazon Web Services (AWS)</td><td>Cloud-Kooperation / Infrastruktur</td><td>Aufbau cloudbasierter Daten- und OTA-Infrastruktur zur Unterstützung von KI-gestützten Entwicklungs- und Update-Prozessen.</td></tr>
+                <tr><td>Renault Group × Valeo</td><td>Renault Group &amp; Valeo SA</td><td>Strategische Partnerschaft</td><td>Entwicklung softwaredefinierter Fahrzeugarchitekturen und gemeinsamer Middleware-Plattformen.</td></tr>
+                <tr><td>Qualcomm × BMWx AWS</td><td>Qualcomm Technologies &amp; BMW Group &amp; Amazon Web Services (AWS)</td><td>Technologie-Kooperation</td><td>Zusammenarbeit im Bereich autonomes Fahren; Qualcomm liefert Rechenleistung; AWS liefert Cloud-, KI-, ML- und IoT-Dienste von AWS</td></tr>
+                <tr><td>Continental x AWS (CAEdge)</td><td>Continental &amp; AWS</td><td>Infrastruktur-Kooperation</td><td>Entwicklung virtueller Entwicklungsumgebungen</td></tr>
+                <tr><td>General Motors × Nvidia</td><td>General Motors &amp; Nvidia</td><td>Technologie-Partnerschaft</td><td>Bereitstellung von KI- und Rechenleistung für autonomes Fahren, Robotik und Produktion.</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
+
         <div class="sub card">
           <h3 id="oekosysteme">Ökosysteme</h3>
           <p>Konsortien, Standardisierungs‑ und Open‑Source‑Initiativen (z. B. AUTOSAR, SOAFEE, Eclipse SDV) bündeln Know‑how, fördern Interoperabilität und beschleunigen Innovationen.</p>
           <h4>Ökosysteme &amp; Kooperationen (Tabelle)</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Initiative</th><th>Beteiligte Akteure / Träger</th><th>Schwerpunkt</th><th>Beitrag / Mehrwert</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>AUTOSAR</td><td>OEMs (BMW, VW, Mercedes-Benz), Tier-1 (Bosch, Continental, Valeo, Vector)</td><td>Standardisierte Softwarearchitektur</td><td>Interoperabilität, Wiederverwendbarkeit und gemeinsame Middleware-Standards.</td></tr>
-<tr><td>SOAFEE (Scalable Open Architecture for Embedded Edge)</td><td>Arm, AWS u. a. Partner</td><td>Cloud-native Architektur für Fahrzeugsoftware</td><td>Ermöglicht CI/CD-Prozesse zwischen Cloud und Edge; unterstützt Echtzeit-, Sicherheits- und Virtualisierungsanforderungen.</td></tr>
-<tr><td>Eclipse SDV Working Group</td><td>Eclipse Foundation, BMW, Mercedes-Benz, Bosch, Continental u. a.</td><td>Open-Source-Standardisierung</td><td>Gemeinsame Entwicklung von SDV-Bausteinen, Förderung von Interoperabilität und Wiederverwendung.</td></tr>
-<tr><td>FEDERATE (EU-Projekt)</td><td>Europäische OEMs, Zulieferer, Behörden, Forschung</td><td>Europäisches SDV-Ökosystem</td><td>Koordination von Open-Source-Entwicklung und Forschung zur Stärkung der europäischen SDV-Kompetenz.</td></tr>
-<tr><td>HAL4SDV (EU-Projekt)</td><td>Europäische Forschungs- und Industriepartner</td><td>Hardware-Abstraktionsschicht</td><td>Sicherstellung von Modularität, Skalierbarkeit, Portabilität und Cybersicherheit über Plattformen hinweg.</td></tr>
-<tr><td>5G Automotive Association (5GAA)</td><td>Toyota, Ericsson, NTT, Cisco, Dell EMC u. a.</td><td>Integration von 5G in automobile Netze</td><td>Entwicklung von Edge-Computing-Lösungen und Standardisierung von MEC-Schnittstellen.</td></tr>
-            </tbody>
-          </table>
-          <div class="viz" id="ecoViz">
-            <strong>Visuelle Darstellung (Vorschlag):</strong> Cluster‑Karte (Initiativen als Cluster, Akteure als Punkte). Ebenfalls Platzhalter – können wir anschließend mit einem einfachen SVG‑Bubble‑Layout füllen.
+          <div class="tbl-wrap">
+            <table>
+              <caption>Überblick zentraler Ökosysteme und Initiativen</caption>
+              <thead>
+                <tr>
+                  <th>Initiative</th><th>Beteiligte Akteure / Träger</th><th>Schwerpunkt</th><th>Beitrag / Mehrwert</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>AUTOSAR</td><td>OEMs (BMW, VW, Mercedes-Benz), Tier-1 (Bosch, Continental, Valeo, Vector)</td><td>Standardisierte Softwarearchitektur</td><td>Interoperabilität, Wiederverwendbarkeit und gemeinsame Middleware-Standards.</td></tr>
+                <tr><td>SOAFEE (Scalable Open Architecture for Embedded Edge)</td><td>Arm, AWS u. a. Partner</td><td>Cloud-native Architektur für Fahrzeugsoftware</td><td>Ermöglicht CI/CD-Prozesse zwischen Cloud und Edge; unterstützt Echtzeit-, Sicherheits- und Virtualisierungsanforderungen.</td></tr>
+                <tr><td>Eclipse SDV Working Group</td><td>Eclipse Foundation, BMW, Mercedes-Benz, Bosch, Continental u. a.</td><td>Open-Source-Standardisierung</td><td>Gemeinsame Entwicklung von SDV-Bausteinen, Förderung von Interoperabilität und Wiederverwendung.</td></tr>
+                <tr><td>FEDERATE (EU-Projekt)</td><td>Europäische OEMs, Zulieferer, Behörden, Forschung</td><td>Europäisches SDV-Ökosystem</td><td>Koordination von Open-Source-Entwicklung und Forschung zur Stärkung der europäischen SDV-Kompetenz.</td></tr>
+                <tr><td>HAL4SDV (EU-Projekt)</td><td>Europäische Forschungs- und Industriepartner</td><td>Hardware-Abstraktionsschicht</td><td>Sicherstellung von Modularität, Skalierbarkeit, Portabilität und Cybersicherheit über Plattformen hinweg.</td></tr>
+                <tr><td>5G Automotive Association (5GAA)</td><td>Toyota, Ericsson, NTT, Cisco, Dell EMC u. a.</td><td>Integration von 5G in automobile Netze</td><td>Entwicklung von Edge-Computing-Lösungen und Standardisierung von MEC-Schnittstellen.</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
