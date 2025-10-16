@@ -34,6 +34,14 @@
     @media(min-width:900px){.columns{columns:2; column-gap:24px}}
     .columns p{break-inside:avoid}
     .small{font-size:.95rem}
+      html{scroll-behavior:smooth}
+    .cloud{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-top:14px}
+    .chip{display:flex; align-items:center; justify-content:center; padding:10px 12px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.12)); border-radius:999px; cursor:pointer; text-decoration:none; color:var(--text); font-weight:600}
+    .chip:hover{outline:1px solid var(--accent); transform:translateY(-1px)}
+    .cloud-wrap{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px}
+    .cloud-head{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    .cloud-head input{flex:1 1 280px; max-width:450px; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0d1320; color:var(--text)}
+    .muted{color:var(--muted)}
   </style>
 </head>
 <body>
@@ -61,6 +69,34 @@
       <p>Diese Seite bündelt die Kernergebnisse der Masterarbeit als digitales Artefakt: zweisprachiges Abstract, Überblick zu den Hauptkapiteln, die in der Arbeit verwendete SDV‑Definition sowie die Forschungsfragen mit prägnanten Antworten.</p>
     </section>
 
+    <section id="keywords" class="card">
+      <h2>Begriffe entdecken</h2>
+      <div class="cloud-wrap">
+        <div class="cloud-head">
+          <p class="muted">Wähle einen Begriff – du springst direkt zur passenden Stelle auf dieser Seite.</p>
+          <input id="cloudFilter" type="search" placeholder="Begriff filtern… (z. B. OTA, Middleware, Markt)…" />
+        </div>
+        <div id="cloud" class="cloud">
+          <a class="chip" href="#definition">SDV‑Definition</a>
+          <a class="chip" href="#systemkomponenten">Systemkomponenten</a>
+          <a class="chip" href="#marktstruktur">Marktstruktur</a>
+          <a class="chip" href="#oekosysteme">Ökosysteme</a>
+          <a class="chip" href="#fragen">Forschungsfragen</a>
+          <a class="chip" href="#zonale-architektur">Zonale Architektur</a>
+          <a class="chip" href="#middleware">Middleware</a>
+          <a class="chip" href="#virtualisierung">Virtualisierung</a>
+          <a class="chip" href="#ota">OTA‑Updates</a>
+          <a class="chip" href="#safety-security">Safety & Security</a>
+          <a class="chip" href="#cloud-daten">Cloud & Daten</a>
+          <a class="chip" href="#ki">KI im Fahrzeug</a>
+          <a class="chip" href="#autosar">AUTOSAR</a>
+          <a class="chip" href="#soafee">SOAFEE</a>
+          <a class="chip" href="#eclipse-sdv">Eclipse SDV</a>
+          <a class="chip" href="#fazit">Fazit</a>
+        </div>
+      </div>
+    </section>
+
     <section id="abstract-de" class="card">
       <h2>Abstract (Deutsch)</h2>
       <div class="columns">
@@ -83,23 +119,23 @@
       <h2>Hauptkapitel – Kurzüberblick</h2>
       <div class="grid">
         <div class="sub card">
-          <h3>Kapitel 2 · Begriffsverständnis & Treiber</h3>
+          <h3 id="begriff-treiber">Kapitel 2 · Begriffsverständnis & Treiber</h3>
           <p>Einordnung des SDV aus Wissenschaft und Praxis; Herleitung zentraler technologischer und marktbezogener Treiber (z. B. OTA, Cloud‑Integration, Standardisierung, KI, Sicherheit).</p>
         </div>
         <div class="sub card">
-          <h3>Kapitel 3 · Systemkomponenten</h3>
-          <p>E/E‑Architekturen (zonal/zentral), Betriebssysteme & Middleware, Virtualisierung & Containerisierung, OTA‑Update, Safety & Security sowie weitere Schlüsseltechnologien.</p>
+          <h3 id="systemkomponenten">Kapitel 3 · Systemkomponenten</h3>
+          <p><span id="zonale-architektur"></span><span id="middleware"></span><span id="virtualisierung"></span><span id="ota"></span><span id="safety-security"></span><span id="cloud-daten"></span><span id="ki"></span>E/E‑Architekturen (zonal/zentral), Betriebssysteme & Middleware, Virtualisierung & Containerisierung, OTA‑Update, Safety & Security sowie weitere Schlüsseltechnologien.</p>
         </div>
         <div class="sub card">
-          <h3>Kapitel 4 · Marktstruktur</h3>
+          <h3 id="marktstruktur">Kapitel 4 · Marktstruktur</h3>
           <p>Rollenverschiebungen und Wertschöpfungsdynamiken zwischen OEMs, Tier‑1/Tier‑2 und Tech/Cloud; Auswirkungen auf Kompetenzen, Abhängigkeiten und Geschäftsmodelle.</p>
         </div>
         <div class="sub card">
-          <h3>Kapitel 5 · Ökosysteme</h3>
-          <p>Bedeutung offener Ökosysteme, Standardisierungsinitiativen (z. B. AUTOSAR, SOAFEE, Eclipse SDV) und Allianzen als Hebel für Interoperabilität und Entwicklungsgeschwindigkeit.</p>
+          <h3 id="oekosysteme">Kapitel 5 · Ökosysteme</h3>
+          <p><span id="autosar"></span><span id="soafee"></span><span id="eclipse-sdv"></span>Bedeutung offener Ökosysteme, Standardisierungsinitiativen (z. B. AUTOSAR, SOAFEE, Eclipse SDV) und Allianzen als Hebel für Interoperabilität und Entwicklungsgeschwindigkeit.</p>
         </div>
         <div class="sub card">
-          <h3>Kapitel 6 · Fazit</h3>
+          <h3 id="fazit">Kapitel 6 · Fazit</h3>
           <p>Integrative Synthese der technischen, organisatorischen und marktbezogenen Befunde; Beantwortung der Forschungsfragen und Reflexion der Limitationen.</p>
         </div>
       </div>
@@ -135,7 +171,7 @@
     <section id="kontakt" class="card">
       <h2>Kontakt & Impressum</h2>
       <p><strong>Autor:</strong> Fatih Kurtar · Hochschule Reutlingen, Digital Business Engineering</p>
-      <p class="note">Permanenter Link (GitHub Pages) wird nach Veröffentlichung hier ergänzt. Vorschlag: <code>https://USERNAME.github.io/sdv-masterarbeit/</code></p>
+      <p class="note">Permanenter Link (GitHub Pages): <a href="https://fatihkurtar2.github.io/Masterarbeit_Software-Defined%20Vehicle_DBE/">https://fatihkurtar2.github.io/Masterarbeit_Software-Defined%20Vehicle_DBE/</a></p>
     </section>
   </main>
 
@@ -144,5 +180,26 @@
       © 2025 Fatih Kurtar · Lizenz: CC BY‑NC‑ND 4.0 · Letzte Aktualisierung: 15.10.2025
     </div>
   </footer>
+  <script>
+    // Shuffle chips for a lively look
+    (function(){
+      const c = document.getElementById('cloud');
+      if(!c) return;
+      const nodes = Array.from(c.children);
+      for (let i = nodes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        c.appendChild(nodes[j]);
+      }
+      const filter = document.getElementById('cloudFilter');
+      if(filter){
+        filter.addEventListener('input', e => {
+          const q = e.target.value.toLowerCase();
+          Array.from(c.children).forEach(chip => {
+            chip.style.display = chip.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+          });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
