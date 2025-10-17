@@ -16,6 +16,7 @@
     nav .brand{font-weight:700; letter-spacing:.3px}
     nav a{color:var(--text); text-decoration:none; padding:8px 12px; border-radius:999px}
     nav a:hover{background:var(--line)}
+    .menu{display:flex; flex-wrap:wrap; gap:4px}
     main{padding:30px 0 80px}
     section{scroll-margin-top:90px; margin:0 0 28px}
     .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px}
@@ -24,7 +25,34 @@
     h2{font-size:clamp(1.2rem,2.4vw,1.6rem); color:var(--accent)}
     h3{font-size:1.05rem; color:var(--muted)}
     .grid{display:grid; gap:16px}
+    .pill{display:inline-block; font-size:.85rem; padding:4px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted)}
     footer{border-top:1px solid var(--line); color:var(--muted); font-size:.9rem}
+    .note{color:var(--muted); font-size:.95rem}
+    ul{margin:8px 0 0 18px}
+    .columns{columns:1}
+    .columns p{break-inside:avoid}
+    .small{font-size:.95rem}
+
+    /* Wortwolke */
+    .cloud{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-top:14px}
+    .chip{display:flex; align-items:center; justify-content:center; padding:10px 12px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.12)); border-radius:999px; cursor:pointer; text-decoration:none; color:var(--text); font-weight:600}
+    .chip:hover{outline:1px solid var(--accent); transform:translateY(-1px)}
+    .cloud-wrap{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px}
+    .cloud-head{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    .cloud-head input{flex:1 1 280px; max-width:450px; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0d1320; color:var(--text)}
+    .muted{color:var(--muted)}
+
+    /* Kapitel-Karten */
+    .sub.card{background:transparent; border:1px dashed var(--line)}
+
+    /* Tabellen – schöner & responsiv */
+    .tbl-wrap{overflow:auto; border:1px solid var(--line); border-radius:12px; margin-top:12px}
+    table{width:100%; border-collapse:separate; border-spacing:0}
+    thead th{position:sticky; top:0; background:#0f1524; color:var(--text); text-align:left}
+    th,td{padding:12px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover{background:rgba(255,255,255,.03)}
+    caption{caption-side:top; text-align:left; color:var(--muted); padding:6px 2px 4px}
   </style>
 </head>
 <body>
@@ -33,40 +61,211 @@
       <nav>
         <div class="brand">SDV Masterarbeit · Artefakt</div>
         <div class="menu">
-          <a href="#systemkomponenten">Systemkomponenten</a>
-          <a href="#marktstruktur">Marktstrukturen</a>
+          <a href="#home">Home</a>
+          <a href="#abstract-de">Abstract (DE)</a>
+          <a href="#abstract-en">Abstract (EN)</a>
+          <a href="#definition">Definition</a>
+          <a href="#kapitel">Hauptkapitel</a>
           <a href="#oekosysteme">Ökosysteme</a>
+          <a href="#fragen">Forschungsfragen</a>
+          <a href="#kontakt">Kontakt</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <section id="systemkomponenten" class="card">
-      <h2>Systemkomponenten</h2>
-      <p>Das Kapitel beschreibt die technischen Grundlagen des Software-Defined Vehicle und verdeutlicht den Wandel von einer hardwarezentrierten hin zu einer softwaregesteuerten Fahrzeugarchitektur.</p>
-      <p>Ausgangspunkt ist die Weiterentwicklung der <strong>E/E-Architektur</strong>, die zunehmend zonal aufgebaut ist. Steuergeräte werden funktional gebündelt und über Hochleistungsrechner verbunden. Diese Struktur reduziert Verkabelung, Komplexität und Kosten und ermöglicht eine klare Trennung von Hardware- und Softwareebenen.</p>
-      <p>Eine zentrale Rolle spielt die <strong>Middleware</strong>, die als Vermittlungsschicht zwischen Applikationen und Hardware fungiert. Sie abstrahiert die Hardware und erlaubt eine serviceorientierte Kommunikation über standardisierte Schnittstellen.</p>
-      <p>Die <strong>Virtualisierung</strong> ermöglicht die flexible und voneinander unabhängige Ausführung verschiedener Softwaredienste innerhalb einer gemeinsamen Hardwareumgebung. Dadurch wird die Wiederverwendbarkeit von Softwarekomponenten verbessert und die Entwicklung neuer Funktionen beschleunigt.</p>
-      <p>Über <strong>Over-the-Air-Mechanismen (OTA)</strong> können Softwarefunktionen und Steuergeräte-Updates über den gesamten Fahrzeuglebenszyklus bereitgestellt und installiert werden.</p>
-      <p>Ergänzend gewinnen <strong>Cloud- und Datenintegration</strong> sowie der Einsatz von <strong>Künstlicher Intelligenz</strong> an Bedeutung, etwa für Entwicklungs-, Diagnose- und Optimierungsprozesse.</p>
-      <p><strong>Sicherheitsaspekte:</strong> Sicherheit ist ein übergreifender Bestandteil der Architektur softwaredefinierter Fahrzeuge. Sie umfasst den Schutz von Software, Datenübertragung und Cloud-Umgebungen über den gesamten Lebenszyklus. Besondere Bedeutung haben sichere Update-Prozesse, die Absicherung von Schnittstellen und die Integrität der Systeme. Ziel ist ein vertrauenswürdiges Gesamtsystem, das den sicheren Betrieb und die kontinuierliche Weiterentwicklung gewährleistet.</p>
-      <p>Diese Systemkomponenten bilden die technologische Grundlage für eine skalierbare, kontinuierlich weiterentwickelbare Fahrzeugsoftware und sind das Rückgrat der softwaredefinierten Fahrzeugarchitektur.</p>
+    <!-- Home -->
+    <section id="home" class="card">
+      <h1>Software-Defined Vehicle: Systemkomponenten, Marktstrukturen und Ökosysteme</h1>
+      <p class="note"><strong>Master-Thesis</strong> · Studiengang <strong>Digital Business Engineering</strong> · <strong>Hochschule Reutlingen</strong></p>
+      <p>Diese Webseite bündelt die Kernergebnisse der Masterarbeit als digitales Artefakt: <strong>Abstract</strong> – <strong>Definition Software-Defined Vehicle</strong> – <strong>Systemkomponenten</strong> – <strong>Marktstrukturen</strong> – <strong>Ökosysteme</strong> – <strong>Forschungsfragen</strong>.</p>
     </section>
 
-    <section id="marktstruktur" class="card">
-      <h2>Marktstrukturen</h2>
-      <p>Die Marktstrukturen im Umfeld des Software-Defined Vehicle befinden sich in einem grundlegenden Wandel. Mit der zunehmenden Softwareorientierung verändert sich die Rollenverteilung zwischen den Akteuren der Automobilindustrie und es entsteht eine neue Form der Wertschöpfung.</p>
-      <p><strong>OEMs</strong> entwickeln sich von klassischen Fahrzeugherstellern zu Systemintegratoren und Softwareanbietern. Sie bauen interne Softwarekompetenzen auf, entwickeln eigene Betriebssysteme und Datenplattformen und übernehmen die Verantwortung für den gesamten Software-Lebenszyklus. Gleichzeitig bleiben sie auf Kooperationen mit Technologie- und Cloudpartnern angewiesen, um Entwicklungsaufwände und Komplexität zu bewältigen.</p>
-      <p><strong>Tier-1-Zulieferer</strong> wandeln sich zu Technologie- und Systemlieferanten mit eigenem Software-, Middleware- und Cloud-Portfolio. Sie übernehmen verstärkt Integrationsaufgaben und positionieren sich als Entwicklungspartner auf Augenhöhe mit OEMs. Ihr Schwerpunkt verschiebt sich von Hardwareproduktion hin zu softwarebasierten Services und End-to-End-Lösungen.</p>
-      <p><strong>Tier-2- und Technologieunternehmen</strong> wie Halbleiter-, Cloud- und KI-Anbieter gewinnen strategische Bedeutung. Sie liefern zentrale Rechenplattformen, Entwicklungsumgebungen und Dateninfrastrukturen und beeinflussen damit direkt die Geschwindigkeit und Richtung der Softwareentwicklung im Fahrzeug. Durch ihre Skaleneffekte und Standardisierungskraft prägen sie zunehmend den technologischen Unterbau der Branche.</p>
-      <p>Insgesamt entsteht eine <strong>neue Wertschöpfungskette</strong>, die sich von linearen Lieferbeziehungen hin zu dynamischen, kooperativen Netzwerken entwickelt. Kooperation und Wettbewerb bestehen parallel, wobei Software, Daten und Plattformen zum zentralen Differenzierungsfaktor werden. Wertschöpfung verlagert sich von einmaligen Produktverkäufen zu kontinuierlichen Erlösmodellen auf Basis digitaler Dienste und Updates über den gesamten Fahrzeuglebenszyklus.</p>
-      <p>Diese Veränderungen markieren den Übergang von einer hierarchischen Industrie- zu einer vernetzten Plattformstruktur, in der alle Akteure gemeinsam zur Gestaltung des Software-Defined Vehicle beitragen.</p>
+    <!-- Begriffe entdecken -->
+    <section id="keywords" class="card">
+      <h2>Begriffe entdecken</h2>
+      <div class="cloud-wrap">
+        <div class="cloud-head">
+          <p class="muted">Wähle einen Begriff – du springst direkt zur passenden Stelle auf dieser Seite.</p>
+          <input id="cloudFilter" type="search" placeholder="Begriff filtern… (z. B. OTA, Middleware, Markt)…" />
+        </div>
+        <div id="cloud" class="cloud">
+          <a class="chip" href="#definition">Software-Defined Vehicle (Definition)</a>
+          <a class="chip" href="#systemkomponenten">Systemkomponenten</a>
+          <a class="chip" href="#marktstruktur">Marktstrukturen</a>
+          <a class="chip" href="#oekosysteme">Ökosysteme</a>
+          <a class="chip" href="#fragen">Forschungsfragen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abstract DE -->
+    <section id="abstract-de" class="card">
+      <h2>Abstract (Deutsch)</h2>
+      <div class="columns">
+        <p>Diese Masterarbeit untersucht die Transformation der Automobilindustrie hin zum Konzept des Software-Defined Vehicle auf Basis einer multivokalen Literaturanalyse. Ziel der Arbeit ist es, die technologischen, organisatorischen und marktbezogenen Entwicklungen im Kontext des Software Defined Vehicle systematisch zu erfassen und ein integriertes Verständnis der zugrunde liegenden Dynamiken zu schaffen.</p>
+        <p>Die Arbeit gliedert sich in drei zentrale Themenbereiche: Systemkomponenten, Marktstrukturen und Ökosysteme. Im technischen Teil werden die Kernkomponenten eines Software Defined Vehicle beschrieben, darunter zonale E/E-Architekturen, Middleware, Virtualisierung, Over-the-Air-Updates, sowie die übergreifende Sicherheitsaspekte und weitere Schlüsseltechnologien. Auf dieser Grundlage werden die Auswirkungen auf die Marktstruktur diskutiert – insbesondere die Verschiebung von Wertschöpfung, Kompetenzen und Abhängigkeiten zwischen OEMs, Tier-1-Zulieferern, Technologie- und Cloud-Anbietern. Abschließend werden relevante Ökosysteme, Open-Source-Initiativen und strategische Allianzen analysiert, die als zentrale Treiber von Standardisierung, Interoperabilität und Innovationsgeschwindigkeit fungieren.</p>
+        <p>Die Ergebnisse zeigen, dass die erfolgreiche Umsetzung von SDV-Konzepten nur durch enge Kooperationen, offene Softwarearchitekturen und standardisierte Schnittstellen möglich ist. Der Erfolg zukünftiger SDV-Generationen hängt somit entscheidend von der Integration technischer, organisatorischer und marktbezogener Faktoren ab.</p>
+      </div>
+    </section>
+
+    <!-- Abstract EN -->
+    <section id="abstract-en" class="card">
+      <h2>Abstract (English)</h2>
+      <div class="columns">
+        <p>This master’s thesis examines the transformation of the automotive industry toward the concept of the Software-Defined Vehicle based on a multivocal literature review. The aim of the thesis is to systematically capture the technological, organizational, and market-related developments in the context of Software Defined Vehicles and to establish an integrated understanding of the underlying dynamics.</p>
+        <p>The thesis is structured into three central topics: system components, market structures, and ecosystems. The technical section describes the core components of a Software Defined Vehicle, including zonal E/E architectures, middleware, virtualization, over-the-air updates, as well as overarching aspects of safety and security and other key enabling technologies. Building on this foundation, the work discusses the implications for market structures—particularly the shift in value creation, competencies, and dependencies between OEMs, Tier-1 suppliers, technology companies, and cloud providers. Finally, relevant ecosystems, open-source initiatives, and strategic alliances are analyzed, which serve as key drivers of standardization, interoperability, and innovation speed.</p>
+        <p>The findings demonstrate that the successful implementation of SDV concepts is only achievable through close collaboration, open software architectures, and standardized interfaces. Consequently, the success of future SDV generations will critically depend on the integration of technological, organizational, and market-related factors.</p>
+      </div>
+    </section>
+
+    <!-- Definition -->
+    <section id="definition" class="card">
+      <h2>Arbeitsdefinition: Software Defined Vehicle</h2>
+      <p><strong>Software Defined Vehicle</strong> ist ein Fahrzeug, dessen Funktionen, Leistungsmerkmale und Wertschöpfung im Wesentlichen durch Software bestimmt werden. Es basiert auf einer zentralisierten, rechnergestützten Architektur, die Hardware- und Softwareebenen voneinander trennt und die Entwicklung, Bereitstellung und Aktualisierung von Funktionen über den gesamten Lebenszyklus hinweg ermöglicht. Im Gegensatz zu herkömmlichen, hardwaredominierten Fahrzeugen werden fahrzeugbezogene Funktionen als Softwaredienste realisiert, die über standardisierte Schnittstellen und Cloud-Infrastrukturen bereitgestellt, erweitert und aktualisiert werden können. Damit steht das Software Defined Vehicle für den Übergang von statischen Fahrzeugprodukten zu dynamischen, digital vernetzten Plattformen, die kontinuierlich durch Over-the-Air-Updates, Künstliche Intelligenz und datengetriebene Services weiterentwickelt werden.</p>
+      <p class="note">(Dies ist die in der Arbeit ausgearbeitete Arbeitsdefinition; hier bewusst ohne Abkürzung ausgeschrieben.)</p>
+    </section>
+
+    <!-- Hauptkapitel – Überblick -->
+    <section id="kapitel" class="card">
+      <h2>Hauptkapitel – Überblick</h2>
+      <div class="grid" style="grid-template-columns:1fr">
+
+        <!-- Systemkomponenten -->
+        <div class="sub card">
+          <h3 id="systemkomponenten">Systemkomponenten</h3>
+          <p>Das Kapitel beschreibt die technischen Grundlagen des Software-Defined Vehicle und verdeutlicht den Wandel von einer hardwarezentrierten hin zu einer softwaregesteuerten Fahrzeugarchitektur.</p>
+          <p>Ausgangspunkt ist die Weiterentwicklung der <strong>E/E-Architektur</strong>, die zunehmend zonal aufgebaut ist. Steuergeräte werden funktional gebündelt und über Hochleistungsrechner verbunden. Diese Struktur reduziert Verkabelung, Komplexität und Kosten und ermöglicht eine klare Trennung von Hardware- und Softwareebenen.</p>
+          <p>Eine zentrale Rolle spielt die <strong>Middleware</strong>, die als Vermittlungsschicht zwischen Applikationen und Hardware fungiert. Sie abstrahiert die Hardware und erlaubt eine serviceorientierte Kommunikation über standardisierte Schnittstellen.</p>
+          <p>Die <strong>Virtualisierung</strong> ermöglicht die flexible und voneinander unabhängige Ausführung verschiedener Softwaredienste innerhalb einer gemeinsamen Hardwareumgebung. Dadurch wird die Wiederverwendbarkeit von Softwarekomponenten verbessert und die Entwicklung neuer Funktionen beschleunigt.</p>
+          <p>Über <strong>Over-the-Air-Mechanismen (OTA)</strong> können Softwarefunktionen und Steuergeräte-Updates über den gesamten Fahrzeuglebenszyklus bereitgestellt und installiert werden.</p>
+          <p>Ergänzend gewinnen <strong>Cloud- und Datenintegration</strong> sowie der Einsatz von <strong>Künstlicher Intelligenz</strong> an Bedeutung, etwa für Entwicklungs-, Diagnose- und Optimierungsprozesse.</p>
+          <p><strong>Sicherheitsaspekte:</strong> Sicherheit ist ein übergreifender Bestandteil der Architektur softwaredefinierter Fahrzeuge. Sie umfasst den Schutz von Software, Datenübertragung und Cloud-Umgebungen über den gesamten Lebenszyklus. Besondere Bedeutung haben sichere Update-Prozesse, die Absicherung von Schnittstellen und die Integrität der Systeme. Ziel ist ein vertrauenswürdiges Gesamtsystem, das den sicheren Betrieb und die kontinuierliche Weiterentwicklung gewährleistet.</p>
+          <p>Diese Systemkomponenten bilden die technologische Grundlage für eine skalierbare, kontinuierlich weiterentwickelbare Fahrzeugsoftware und sind das Rückgrat der softwaredefinierten Fahrzeugarchitektur.</p>
+        </div>
+
+        <!-- Marktstrukturen -->
+        <div class="sub card">
+          <h3 id="marktstruktur">Marktstrukturen</h3>
+          <p>Die Marktstrukturen im Umfeld des Software-Defined Vehicle befinden sich in einem grundlegenden Wandel. Mit der zunehmenden Softwareorientierung verändert sich die Rollenverteilung zwischen den Akteuren der Automobilindustrie und es entsteht eine neue Form der Wertschöpfung.</p>
+          <p><strong>OEMs</strong> entwickeln sich von klassischen Fahrzeugherstellern zu Systemintegratoren und Softwareanbietern. Sie bauen interne Softwarekompetenzen auf, entwickeln eigene Betriebssysteme und Datenplattformen und übernehmen die Verantwortung für den gesamten Software-Lebenszyklus. Gleichzeitig bleiben sie auf Kooperationen mit Technologie- und Cloudpartnern angewiesen, um Entwicklungsaufwände und Komplexität zu bewältigen.</p>
+          <p><strong>Tier-1-Zulieferer</strong> wandeln sich zu Technologie- und Systemlieferanten mit eigenem Software-, Middleware- und Cloud-Portfolio. Sie übernehmen verstärkt Integrationsaufgaben und positionieren sich als Entwicklungspartner auf Augenhöhe mit OEMs. Ihr Schwerpunkt verschiebt sich von Hardwareproduktion hin zu softwarebasierten Services und End-to-End-Lösungen.</p>
+          <p><strong>Tier-2- und Technologieunternehmen</strong> wie Halbleiter-, Cloud- und KI-Anbieter gewinnen strategische Bedeutung. Sie liefern zentrale Rechenplattformen, Entwicklungsumgebungen und Dateninfrastrukturen und beeinflussen damit direkt die Geschwindigkeit und Richtung der Softwareentwicklung im Fahrzeug. Durch ihre Skaleneffekte und Standardisierungskraft prägen sie zunehmend den technologischen Unterbau der Branche.</p>
+          <p>Insgesamt entsteht eine <strong>neue Wertschöpfungskette</strong>, die sich von linearen Lieferbeziehungen hin zu dynamischen, kooperativen Netzwerken entwickelt. Kooperation und Wettbewerb bestehen parallel, wobei Software, Daten und Plattformen zum zentralen Differenzierungsfaktor werden. Wertschöpfung verlagert sich von einmaligen Produktverkäufen zu kontinuierlichen Erlösmodellen auf Basis digitaler Dienste und Updates über den gesamten Fahrzeuglebenszyklus.</p>
+          <p>Diese Veränderungen markieren den Übergang von einer hierarchischen Industrie- zu einer vernetzten Plattformstruktur, in der alle Akteure gemeinsam zur Gestaltung des Software-Defined Vehicle beitragen.</p>
+        </div>
+
+        <!-- Ökosysteme -->
+        <div class="sub card">
+          <h3 id="oekosysteme">Ökosysteme</h3>
+          <p>Konsortien, Standardisierungs- und Open-Source-Initiativen bündeln Know-how, fördern Interoperabilität und beschleunigen Innovationen. Im Folgenden die zentralen <em>strategischen Allianzen</em> sowie <em>Initiativen &amp; Konsortien</em> im Überblick.</p>
+
+          <!-- Tabelle 1: Strategische Allianzen und Kooperationen -->
+          <h3>Strategische Allianzen und Kooperationen</h3>
+          <div class="tbl-wrap">
+            <table>
+              <caption>Übersicht strategischer Allianzen und Kooperationen im SDV-Umfeld</caption>
+              <thead>
+                <tr>
+                  <th>Kooperation / Allianz</th><th>Beteiligte Akteure</th><th>Art der Kooperation</th><th>Ziel / Inhalt</th><th>Quelle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Toyota North America × AWS</td><td>Toyota North America &amp; Amazon Web Services</td><td>Cloud-Partnerschaft / Cybersicherheit</td><td>Entwicklung einer cloud-nativen Cybersicherheitslösung basierend auf dem Shared-Responsibility-Modell. AWS sichert die Cloud-Infrastruktur, Toyota verantwortet Daten- und Anwendungssicherheit. Nutzung von Verschlüsselung, Schlüsselverwaltung und IAM gemäß NIST Cybersecurity Framework.</td><td>[40]</td></tr>
+                <tr><td>Volvo × NVIDIA</td><td>Volvo Cars &amp; NVIDIA Corporation</td><td>Technologie-Partnerschaft</td><td>Entwicklung einer skalierbaren Softwareplattform auf Basis von NVIDIA DRIVE Orin und künftig DRIVE Thor zur Integration von KI und Sicherheitsfunktionen. Nutzung von Cloud-basiertem KI-Training.</td><td>[65]</td></tr>
+                <tr><td>Suzuki × AWS × Excelfore × Ficosa</td><td>Suzuki Motor Corp., Amazon Web Services, Excelfore, Ficosa</td><td>Strategische Partnerschaft / OTA</td><td>Entwicklung einer End-to-End-OTA-Lösung auf Basis der eSync-Plattform von Excelfore, AWS-Cloud-Infrastruktur und Ficosa-OTA-Gateway. Beispiel für kooperatives OTA-Ökosystem.</td><td>[33]</td></tr>
+                <tr><td>ETAS × AWS</td><td>ETAS GmbH (Bosch-Tochter) &amp; Amazon Web Services</td><td>Technologiepartnerschaft / Cloud-Entwicklung</td><td>Aufbau cloudbasierter Entwicklungs- und Testumgebungen, Einführung einer Co-Simulationsplattform zur Unterstützung verteilter Softwareentwicklung. Förderung der Shift-Left-Strategie im SDV-Entwicklungsprozess.</td><td>[66]</td></tr>
+                <tr><td>Valeo × AWS</td><td>Valeo SA &amp; Amazon Web Services</td><td>Strategische Partnerschaft / Cloud-Entwicklung</td><td>Aufbau gemeinsamer cloudbasierter Entwicklungsumgebungen für Software-Stacks in ADAS, Infotainment und autonomer Mobilität. Entwicklung von Virtualized Hardware Lab, Cloud Hardware Lab und Assist XR.</td><td>[52]</td></tr>
+                <tr><td>AWS × BlackBerry</td><td>Amazon Web Services &amp; BlackBerry Limited</td><td>Technologiepartnerschaft / Datenplattform</td><td>Entwicklung von BlackBerry IVY – einer datengetriebenen Entwicklungsumgebung für ML-basierte und kontextbezogene Fahrzeugservices. Förderung offener Entwickler-Communities.</td><td>[18]</td></tr>
+                <tr><td>Renault Group × Valeo</td><td>Renault Group &amp; Valeo SA</td><td>Strategische Partnerschaft / SDV-Architektur</td><td>Entwicklung einer SDV-Architektur mit gemeinsamem Hochleistungsrechner (HPC) und Middleware-Software. Ergänzt bestehende Kooperationen mit Google (Cloud, Betriebssystem) und Qualcomm (SoC-basierte Lösungen).</td><td>[67]</td></tr>
+                <tr><td>BMW Group × Qualcomm × AWS</td><td>BMW Group, Qualcomm Technologies, Amazon Web Services</td><td>Technologiepartnerschaft / Cloud &amp; KI</td><td>Entwicklung der Cloud-basierten Plattform für automatisiertes Fahren (BMW „Neue Klasse“). Nutzung von AWS KI-, ML- und IoT-Diensten sowie Qualcomm Snapdragon Ride Vision.</td><td>[22]</td></tr>
+                <tr><td>BMW Group × Tata Technologies</td><td>BMW Group &amp; Tata Technologies</td><td>Joint Venture / Softwareentwicklung</td><td>Aufbau mehrerer Entwicklungszentren in Indien zur Fahrzeugsoftware- und IT-Entwicklung (SDV, automatisiertes Fahren, Infotainment).</td><td>[69]</td></tr>
+                <tr><td>Volkswagen × Rivian</td><td>Volkswagen Group &amp; Rivian Automotive</td><td>Strategische Partnerschaft / Joint Venture</td><td>Entwicklung einer gemeinsamen SDV-Plattform und E/E-Architektur; VW investiert 1,3 Mrd. USD in Rivian für Softwarelizenzen und IP-Zugang. ID Every1 als erstes SDV-Modell (ab 2027).</td><td>[70]</td></tr>
+                <tr><td>Toyota × Mazda × Subaru × Suzuki / Renault × Mitsubishi × Nissan / Ford × Volkswagen</td><td>OEM-Allianzen</td><td>OEM-Kooperationen / Skalierbarkeit</td><td>Entwicklung gemeinsamer Software und gegenseitige Kapitalbeteiligungen zur Bündelung von Ressourcen und Know-how. Förderung der Skalierbarkeit und Kosteneffizienz in der Softwareentwicklung.</td><td>[47]</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Tabelle 2: Initiativen und Konsortien -->
+          <h3>Initiativen und Konsortien</h3>
+          <div class="tbl-wrap">
+            <table>
+              <caption>Übersicht internationaler Initiativen und Standardisierungsgremien im SDV-Kontext</caption>
+              <thead>
+                <tr>
+                  <th>Initiative</th><th>Beteiligte Akteure / Träger</th><th>Schwerpunkt</th><th>Beitrag / Mehrwert</th><th>Quelle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>FEDERATE (EU-Projekt)</td><td>Europäische OEMs, Zulieferer, Halbleiterunternehmen, Behörden, Forschungseinrichtungen</td><td>Aufbau eines europäischen SDV-Ökosystems</td><td>Förderung von Open-Source-Entwicklung, Aufbau einer SDV-Community, Koordination laufender und zukünftiger SDV-Projekte zur Stärkung der europäischen Wettbewerbsfähigkeit.</td><td>[59]</td></tr>
+                <tr><td>HAL4SDV (EU-Projekt)</td><td>Europäische Forschungs- und Industriepartner</td><td>Hardware-Abstraktionsschicht (HAL)</td><td>Entwicklung einer modularen, skalierbaren und portablen Softwareplattform. Fokus auf Cybersicherheit, Echtzeitfähigkeit und OTA-Integration.</td><td>[59]</td></tr>
+                <tr><td>AUTOSAR (Classic &amp; Adaptive)</td><td>OEMs (BMW, VW, Mercedes-Benz), Tier-1 (Bosch, Continental, Valeo, Vector Informatik)</td><td>Standardisierte Softwarearchitektur</td><td>Förderung von Wiederverwendbarkeit, Standardisierung und Interoperabilität durch modulare Plattformen für klassische Steuergeräte und HPC-Systeme.</td><td>[17]</td></tr>
+                <tr><td>SOAFEE (Scalable Open Architecture for Embedded Edge)</td><td>Arm, Amazon Web Services (AWS) und weitere Partner</td><td>Cloud-native Architektur für Fahrzeugsoftware</td><td>Entwicklung einer cloud-nativen CI/CD-Architektur, die Echtzeit-, Sicherheits- und Kritikalitätsanforderungen abdeckt. Förderung von Cloud-Embedded-Integration.</td><td>[6][60]</td></tr>
+                <tr><td>Eclipse SDV Working Group</td><td>Eclipse Foundation, BMW, Mercedes-Benz, Cariad (VW), Bosch, Continental sowie Technologieunternehmen</td><td>Open-Source-Standardisierung</td><td>Entwicklung nicht-differenzierender SDV-Softwarekomponenten, Förderung von Interoperabilität, Kosteneffizienz und kooperativer Innovation.</td><td>[62][63]</td></tr>
+                <tr><td>eSync Alliance</td><td>Aptiv, Faurecia, Hella, Molex, ZF, AWS, Excelfore, Ficosa, OEMs (z. B. Suzuki)</td><td>OTA-Standardisierung &amp; Datenpipeline</td><td>Definition einer durchgängigen OTA- und Datenmanagementarchitektur vom Edge bis zur Cloud; Einsatz in über 20 Mio. Fahrzeugen weltweit.</td><td>[33]</td></tr>
+                <tr><td>5G Automotive Association (5GAA)</td><td>Toyota, Ericsson, NTT, Cisco, Dell EMC, AECC, ETSI</td><td>5G-Integration &amp; Edge Computing</td><td>Entwicklung von 5G-Anwendungsfällen, Edge-Lösungen und MEC-Standards zur Unterstützung vernetzter Mobilität.</td><td>[14]</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forschungsfragen -->
+    <section id="fragen" class="card">
+      <h2>Forschungsfragen & Antworten (vollständig)</h2>
+      <div class="small columns">
+        <p><strong>Forschungsfrage 1: Wie wird der Begriff Software-Defined Vehicle in der Literatur und in der Praxis verstanden?</strong></p>
+        <p>Ein SDV ist ein Fahrzeug, dessen Funktionen, Leistungsmerkmale und Wertschöpfung im Wesentlichen durch Software bestimmt werden. Es basiert auf einer zentralisierten, rechnergestützten Architektur, die Hardware- und Softwareebenen voneinander trennt und die Entwicklung, Bereitstellung und Aktualisierung von Funktionen über den gesamten Lebenszyklus hinweg ermöglicht. Im Gegensatz zu herkömmlichen, hardwaredominierten Fahrzeugen werden fahrzeugbezogene Funktionen als Softwaredienste realisiert, die über standardisierte Schnittstellen und Cloud-Infrastrukturen bereitgestellt, erweitert und aktualisiert werden können. Damit steht das SDV für den Übergang von statischen Fahrzeugprodukten zu dynamischen, digital vernetzten Plattformen, die kontinuierlich durch Over-the-Air-Updates, Künstliche Intelligenz und datengetriebene Services weiterentwickelt werden.</p>
+
+        <p><strong>Forschungsfrage 2: Welche technologischen Faktoren fördern die Entwicklung des SDV, und welche Systemkomponenten sind dabei besonders prägend?</strong></p>
+        <p>Die Analyse der technologischen Dimension verdeutlicht, dass die Entwicklung des SDV vor allem durch Fortschritte in der Elektrik-/Elektronikarchitektur, der Virtualisierung und der Softwareintegration getrieben wird. Zentrale Systemkomponenten sind dabei zonale und zentralisierte E/E-Architekturen, leistungsfähige Hochleistungsrechner (HPC), standardisierte Middleware-Lösungen sowie Over-the-Air-Update-Mechanismen. Diese Komponenten ermöglichen die Entkopplung von Hardware und Software, schaffen Skalierbarkeit und unterstützen die kontinuierliche Weiterentwicklung von Fahrzeugfunktionen. Virtualisierung und Containerisierung fördern zusätzlich eine flexible Softwarebereitstellung und erleichtern die Integration externer Services. Darüber hinaus beschleunigen cloud-native Entwicklungsumgebungen und Künstliche Intelligenz die Umsetzung und Skalierung softwaredefinierter Fahrzeugfunktionen.</p>
+
+        <p><strong>Wie verändert sich die Marktstruktur im SDV-Umfeld, und welche Verschiebungen in den Rollen von OEMs, Zulieferern und Technologieunternehmen lassen sich erkennen?</strong></p>
+        <p>Die Marktstruktur der Automobilindustrie unterliegt im Zuge der SDV-Transformation einem tiefgreifenden Wandel. OEMs erweitern ihre internen Softwarekompetenzen, um zentrale Fahrzeugfunktionen eigenständig zu entwickeln und Differenzierungsmerkmale gegenüber Wettbewerbern zu sichern. Gleichzeitig bleiben sie auf Partnerschaften angewiesen, um Entwicklungsaufwände und technologische Lücken zu kompensieren. Tier-1-Zulieferer entwickeln sich von klassischen Komponentenlieferanten zu System- und Technologiepartnern, während Tier-2- und Technologieunternehmen ihre Position durch cloud- und KI-basierte Lösungen stärken. Dadurch entsteht ein vernetztes, mehrschichtiges Wertschöpfungssystem, in dem Kooperation und Wettbewerb parallel bestehen. Die lineare Lieferkette weicht einer flexiblen Kooperationslandschaft, die von projekt- und funktionsspezifischen Allianzen geprägt ist.</p>
+
+        <p><strong>Forschungsfrage 4: Welche Formen von Ökosystemen und strategischen Allianzen entstehen im Kontext des SDV, und welche Bedeutung haben sie für die Wertschöpfung?</strong></p>
+        <p>Die Analyse zeigt, dass offene Ökosysteme und Allianzen eine Schlüsselrolle bei der Umsetzung der SDV-Konzepte einnehmen. Open-Source- und Standardisierungsinitiativen wie AUTOSAR, SOAFEE und Eclipse SDV schaffen gemeinsame technische Grundlagen und fördern Interoperabilität über Unternehmensgrenzen hinweg. Durch diese Kooperationen entstehen komplementäre Kompetenzen, die zu einer effizienteren Entwicklung und Integration neuer Funktionen führen. Strategische Partnerschaften zwischen OEMs, Zulieferern und Technologieunternehmen bündeln Know-how, reduzieren Entwicklungsaufwände und beschleunigen Innovationsprozesse. Auf diese Weise wird die Wertschöpfung zunehmend gemeinschaftlich organisiert, wobei offene Architekturen und standardisierte Schnittstellen die Grundlage für Skalierbarkeit und kontinuierliche Weiterentwicklung bilden.</p>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="card">
+      <h2>Kontakt & Impressum</h2>
+      <p><strong>Name:</strong> Fatih Kurtar · <strong>Hochschule Reutlingen</strong> · Studiengang <strong>Digital Business Engineering</strong></p>
+      <p><strong>Kontakt (E-Mail):</strong> <a href="mailto:Fatih.Kurtar@Student.Reutlingen-University.DE">Fatih.Kurtar@Student.Reutlingen-University.DE</a></p>
+      <p class="note">Permanenter Link (GitHub Pages): <a href="https://fatihkurtar2.github.io/Masterarbeit_Software-Defined-Vehicle/">https://fatihkurtar2.github.io/Masterarbeit_Software-Defined-Vehicle/</a></p>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">© 2025 Fatih Kurtar · Hochschule Reutlingen · Digital Business Engineering</div>
+    <div class="wrap">
+      © 2025 Fatih Kurtar · Lizenz: CC BY-NC-ND 4.0 · Letzte Aktualisierung: 17.10.2025
+    </div>
   </footer>
+
+  <script>
+    // Shuffle chips + Filter
+    (function(){
+      const c = document.getElementById('cloud');
+      if(c){
+        const nodes = Array.from(c.children);
+        for (let i = nodes.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          c.appendChild(nodes[j]);
+        }
+      }
+      const filter = document.getElementById('cloudFilter');
+      if(filter && c){
+        filter.addEventListener('input', e => {
+          const q = e.target.value.toLowerCase();
+          Array.from(c.children).forEach(chip => {
+            chip.style.display = chip.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+          });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
